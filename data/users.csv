@@ -1,0 +1,3 @@
+application_name, email, name, contact_email, signature_name
+TimeOff.Management,pavlo@timeoff.management,Pavel,test@test.com,PavloV
+TimeOff.Management,noreply@timeoff.management,BOT,test@test.com,Pavlo
