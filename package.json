@@ -1,0 +1,20 @@
+{
+  "name": "email-sender",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "csv": "^0.4.6",
+    "handlebars": "^4.0.5",
+    "minimist": "^1.2.0",
+    "moment": "^2.10.2",
+    "nconf": "^0.8.0",
+    "node-uuid": "^1.4.3",
+    "nodemailer": "^1.5.0",
+    "nodemailer-smtp-transport": "^1.0.3",
+    "underscore": "^1.8.3",
+    "validator": "^3.37.0"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
