@@ -1,4 +1,4 @@
-#Email sender
+# Email sender
 
 Simple command line tool to automate sending repetitive template based emails to set of users.
 
