@@ -91,23 +91,24 @@ bluebird.all([
 })
 
 .then(function(emails){
-  console.dir(emails);
+//  console.dir(emails);
 
   var send_email = get_send_mail();
 
-  return bluebird.all(
-    _.map(emails, function(email){
-      return send_email({
-        from    : nconf.get("sender_email"),
-        to      : email.email,
-        subject : email.subject,
-        text    : email.body,
-      })
-      .then(function(){
-        return bluebird.resolve(email.email);
-      });
+  return bluebird.resolve(emails).map(function(email){
+    return send_email({
+      from    : nconf.get("sender_email"),
+      to      : email.email,
+      subject : email.subject,
+      html    : email.body,
     })
-  );
+    .then(function(){
+      console.log('>> sent to '+email.email);
+      return bluebird.resolve(email.email);
+    })
+  },{
+    concurrency : 3,
+  });
 })
 
 .then(function(email_addresses){
