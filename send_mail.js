@@ -102,20 +102,26 @@ bluebird.all([
       subject : email.subject,
       html    : email.body,
     })
-    .then(function(){
+    .then(function(result){
       console.log('>> sent to '+email.email);
+      console.dir(result);
       return bluebird.resolve(email.email);
     })
   },{
-    concurrency : 3,
+    concurrency : 2,
   });
 })
 
 .then(function(email_addresses){
   console.log(' Successfully sent emails to: '+email_addresses.join(', ') );
+
+  return bluebird.resolve(1);
 })
 
-.then(function(){ console.log('done') })
+.then(function(){
+  console.log('done');
+  return bluebird.resolve(1);
+})
 .catch(function(error){ console.log('failed: '+ error) });
 
 
